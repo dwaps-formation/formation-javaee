@@ -1,0 +1,16 @@
+header {
+	width: 100%;
+	height: 120px;
+	background: hsl(191, 98%, 20%);
+}
+
+#logo {
+	background: url('../../img/dwaps-300.png') center no-repeat;
+	background-size: contain;
+	cursor: pointer;
+	width: 90px;
+	height: 90px;
+	position: relative;
+	top: 15px;
+	left: 8px;
+}

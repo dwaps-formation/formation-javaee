@@ -1,0 +1,24 @@
+nav > ul {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 40px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+nav > ul li {
+	display: block;
+	padding-top: 15px;
+    padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+	font-size: 1em;
+	height: 40px;
+}
+
+nav > ul li:hover {
+	background: hsl(191, 50%, 50%);
+}

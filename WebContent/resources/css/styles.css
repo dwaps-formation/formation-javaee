@@ -1,0 +1,13 @@
+/*
+CHARTE GRAPHIQUE
+primary : 191, 98%, 20%
+primary light : hsl(191, 50%, 50%)
+secundary : 39, 51%, 55%
+*/
+
+@import "general.css";
+
+@import "./fragments/header.css";
+@import "./fragments/menu.css";
+@import "./fragments/body.css";
+@import "./fragments/footer.css";
