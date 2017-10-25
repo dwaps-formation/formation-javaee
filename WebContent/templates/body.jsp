@@ -1,3 +1,5 @@
+<%@ page import="fr.dwaps.classes.HandlerDate" %>
+
 <div id="wrapper">
     <div id="home-section" class="section shown">
     <div class="card">
@@ -17,8 +19,23 @@
             <br>
             <button type="submit">Go !</button>
         </form>
-        <div id="#results">
-            <!-- Afficher le résultat du calcul ici -->
+        <div id="results">
+			<%!
+			HandlerDate handlerDate = new HandlerDate();
+			int nbDay = 0;
+			%>
+			<%
+			String queryString = (String) request.getParameter("nbDay");
+			
+			try {
+			    nbDay = Integer.parseInt(queryString);
+			} catch (NumberFormatException e) {
+			       System.out.println("JSP ERROR : La conversion en int n'a pas pu se faire");
+			}
+			
+			String message = handlerDate.calculDate(nbDay);
+			%>
+			<%= message %>
         </div>
     </div>
 </div>
