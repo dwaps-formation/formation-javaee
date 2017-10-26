@@ -8,3 +8,7 @@ body {
     padding: 0;
     font-family: Ubuntu, sans-serif;
 }
+
+h1, p {
+	text-align: center;
+}

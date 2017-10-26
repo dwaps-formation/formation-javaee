@@ -1,5 +1,4 @@
 <%@ page import="fr.dwaps.classes.HandlerDate" %>
-<%@ page errorPage="error.jsp" %>
 
 <div id="wrapper">
     <div id="home-section" class="section shown">
