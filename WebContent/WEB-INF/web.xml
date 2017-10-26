@@ -5,7 +5,7 @@
 <!--   JSP -->
   <servlet>
     <servlet-name>Home</servlet-name>
-    <jsp-file>/home.jsp</jsp-file>
+    <jsp-file>/WEB-INF/jsp/home.jsp</jsp-file>
   </servlet>
   
   

@@ -18,7 +18,8 @@ public class Processing extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext context = getServletContext();
-		RequestDispatcher dispatcher = context.getNamedDispatcher("Home");
+		RequestDispatcher dispatcher = context.getNamedDispatcher("Home"); // 1ère méthode
+		dispatcher = context.getRequestDispatcher("/WEB-INF/jsp/home.jsp"); // 2ème méthode
 		dispatcher.forward(request, response);
 	}
 
