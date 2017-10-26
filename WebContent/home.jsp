@@ -16,7 +16,7 @@
 	
 	<%@ include file="fragments/header.jsp" %>
 	<%@ include file="fragments/menu.jsp" %>
-	<%@ include file="fragments/body.jsp" %>
+<%-- 	<%@ include file="fragments/body.jsp" %> --%>
 	<%@ include file="fragments/footer.jsp" %>
 	
     <script src="./resources/js/app.js"></script>
