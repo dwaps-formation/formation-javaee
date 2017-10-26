@@ -22,16 +22,16 @@
 	        </form>
 	        <div id="results">
 				<%!
-				// HandlerDate handlerDate = new HandlerDate();
-				// int nbDay = 0;
+				HandlerDate handlerDate = new HandlerDate();
+				int nbDay = 0;
 				%>
 				<%
-				// String queryString = (String) request.getParameter("nbDay");
+				String queryString = (String) request.getParameter("nbDay");
 				
-				// nbDay = Integer.parseInt(queryString);
-				// String message = handlerDate.calculDate(nbDay);
+			    nbDay = Integer.parseInt(queryString);
+				String message = handlerDate.calculDate(nbDay);
 				%>
-<%-- 				<%= message %> --%>
+				<%= message %>
 	        </div>
 	    </div>
 	</div>
