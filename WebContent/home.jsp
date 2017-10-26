@@ -14,10 +14,10 @@
 
 	<body>
 	
-	<%@ include file="templates/header.jsp" %>
-	<%@ include file="templates/menu.jsp" %>
-	<%@ include file="templates/body.jsp" %>
-	<%@ include file="templates/footer.jsp" %>
+	<%@ include file="fragments/header.jsp" %>
+	<%@ include file="fragments/menu.jsp" %>
+	<%@ include file="fragments/body.jsp" %>
+	<%@ include file="fragments/footer.jsp" %>
 	
     <script src="./resources/js/app.js"></script>
 	</body>
