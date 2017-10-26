@@ -1,4 +1,5 @@
 <%@ page import="fr.dwaps.classes.HandlerDate" %>
+<%@ page errorPage="error.jsp" %>
 
 <div id="wrapper">
     <div id="home-section" class="section shown">
@@ -27,12 +28,7 @@
 			<%
 			String queryString = (String) request.getParameter("nbDay");
 			
-			try {
-			    nbDay = Integer.parseInt(queryString);
-			} catch (NumberFormatException e) {
-			       System.out.println("JSP ERROR : La conversion en int n'a pas pu se faire");
-			}
-			
+		    nbDay = Integer.parseInt(queryString);
 			String message = handlerDate.calculDate(nbDay);
 			%>
 			<%= message %>
