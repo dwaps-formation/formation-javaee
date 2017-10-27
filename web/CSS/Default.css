@@ -5,10 +5,26 @@ body {
     color: darkgray;
 }
 
+h1 {
+    text-align: center;
+}
 a, a:visited, a:hover { 
     color: darkgray;
     text-decoration: none;
 }
 a:hover {
     font-style: italic;
+}
+
+.clear { clear: both; }
+
+#Menu {
+    margin: 10px 0px 10px 0px;
+}
+#Menu ul {
+    list-style-type: none;
+}
+#Menu ul li {
+    float: left;
+    width: 150px;
 }

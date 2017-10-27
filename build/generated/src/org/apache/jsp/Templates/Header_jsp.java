@@ -50,6 +50,7 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("<header>\n");
+      out.write("    <h1>Titre de la page</h1>\n");
       out.write("    ");
       out.write("\n");
       out.write("\n");
@@ -60,6 +61,7 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <li><a href=\"#\">Présentation</a></li>\n");
       out.write("        <li><a href=\"#\">Contact</a></li>\n");
       out.write("    </ul>\n");
+      out.write("    <div class=\"clear\"></div>\n");
       out.write("</nav>\n");
       out.write("\n");
       out.write("</header>\n");

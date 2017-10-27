@@ -50,6 +50,7 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <li><a href=\"#\">Présentation</a></li>\n");
       out.write("        <li><a href=\"#\">Contact</a></li>\n");
       out.write("    </ul>\n");
+      out.write("    <div class=\"clear\"></div>\n");
       out.write("</nav>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

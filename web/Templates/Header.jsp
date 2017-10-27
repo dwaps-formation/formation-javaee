@@ -6,5 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header>
+    <h1>Titre de la page</h1>
     <%@ include file="Menu.jsp" %>
 </header>
