@@ -1,0 +1,9 @@
+ nav{
+ 		position : absolute;
+		right :20px;
+		line-height : 30px;
+		top:0;
+		}
+li{display : inline-block;;
+	margin : 10px;
+	text-decoration : underline;}
