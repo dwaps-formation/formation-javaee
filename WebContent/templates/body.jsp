@@ -1,5 +1,16 @@
 	<!-- BODY -->
 	<body>
 	<div id="wrapper">
-	MON APPLICATION</div>
+	MON APPLICATION<br>
+	<p>
+		
+	
+	
+	<%= "ARRAY_OF_MONTHS"  %>
+	</p>
+	
+	
+	</div>
+	
+	
 	</body>
