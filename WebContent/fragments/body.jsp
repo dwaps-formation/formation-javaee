@@ -1,7 +1,8 @@
 <%@ page 
 	language="java" 
 	contentType= "text/html;charset = UTF-8"
-	import = "com.crexos.calendrier.date.HandlerDate"	
+	import = "com.crexos.calendrier.date.HandlerDate"
+	errorPage = "/error.jsp"
 %>
 <div id = "wrapper">
 	<!-- Mon Application -->
@@ -27,7 +28,6 @@
 	<%
 	if(request.getParameter("numDay") != null)
 	{
-		
 		try
 		{
 			out.println("<p>" + monCalendrier.displayDate(Integer.valueOf(request.getParameter("numDay"))) + "</p>");
