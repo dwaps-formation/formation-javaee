@@ -19,10 +19,12 @@
             </tr>
          </table>
       </form>
-	
+	<%!
+		//Cette portion de code est appelé uniquement lors de l'initialisation de la servlet
+		HandlerDate monCalendrier = new HandlerDate();
+	%>	
+
 	<%
-	HandlerDate monCalendrier = new HandlerDate();
-	
 	if(request.getParameter("numDay") != null)
 		out.println("<p>" + monCalendrier.displayDate(Integer.valueOf(request.getParameter("numDay"))) + "</p>");
 	%>

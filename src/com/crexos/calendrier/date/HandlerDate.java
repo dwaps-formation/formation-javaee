@@ -14,6 +14,7 @@ public class HandlerDate {
 	};
 	
 	private int nbOfDay = 0;
+	private String resultPattern = "Le %dème jour correspond au %s %s %s.\n";
 	
 	public String displayDate(int numOfDay)
 	{
@@ -22,7 +23,14 @@ public class HandlerDate {
 		int dayNumber = searchDayNumber(iMonth); // calcul le numéro de jour dans son mois
 		int iDay = searchDay(); // récupère l'index du jour
 		
-		String result = "Le " + numOfDay +"ème jour correspond au "+ datesBuilder[ARRAY_OF_DAYS][iDay] + " "+ (dayNumber == 1 ? dayNumber + "er" : dayNumber) +" "+ datesBuilder[ARRAY_OF_MONTHS][iMonth] + ".";
+		 String result = String.format(
+				resultPattern,
+				nbOfDay,
+				datesBuilder[ARRAY_OF_DAYS][iDay],
+				(dayNumber == 1 ? dayNumber + "er" : dayNumber),
+				datesBuilder[ARRAY_OF_MONTHS][iMonth]
+			);
+		
 		if (numOfDay == 1) result.replace("ème", "er");
 		
 		return result;
