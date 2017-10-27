@@ -1,0 +1,25 @@
+			#contenu{margin:0 auto;
+				width:900px;
+				}
+
+
+			#lbody{height:300px;
+				width:200px;
+				background-color:#c8c8f2;
+				float:left;
+				}
+			#mbody{width:460px;
+				height:260px;
+				background-color:#f9bffb;
+				padding: 20px;
+				float:left;
+				}
+			#rbody{width:200px;
+				height:300px;
+				background-color:#eef2c8;
+				float:left;
+				}
+
+			#body{
+				overflow:auto;
+			}
