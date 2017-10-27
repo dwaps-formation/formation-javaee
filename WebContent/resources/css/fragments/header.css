@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+#logo {
+	float : left;
+}
+
+nav {
+	display : flex;
+	font-family: 'Pacifico', cursive;
+}
+
+nav div {
+	float : right;
+}

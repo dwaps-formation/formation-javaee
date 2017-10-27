@@ -1,0 +1,5 @@
+@import "style.css";
+@import "fragments/body.css";
+@import "fragments/footer.css";
+@import "fragments/header.css";
+@import "fragments/navigator.css";
