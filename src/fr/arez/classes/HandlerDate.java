@@ -16,6 +16,14 @@ public class HandlerDate {
 	};
 	
 	private int nbOfDay = 0;
+	public int getNbOfDay() {
+		return nbOfDay;
+	}
+
+	public void setNbOfDay(int nbOfDay) {
+		this.nbOfDay = nbOfDay;
+	}
+
 	/**
 	 * 
 	 * @param scanner
