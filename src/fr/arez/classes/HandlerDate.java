@@ -28,14 +28,13 @@ public class HandlerDate {
 	 * 
 	 * @param scanner
 	 */
-	public void displayDate(Scanner scanner) {
+	public void displayDate(int nbOfDay) {
 		int iMonth = 0, iDay = 0, dayNumber = 0; // iMonth, iDay => index
 		String resultStr = "Le %dème jour correspond au %s %s %s.\n";
 		
-		System.out.print("Choisir un numéro de jour de l'année [1-365] : ");
+		//System.out.print("Choisir un numéro de jour de l'année [1-365] : ");
 		
-		try {
-			nbOfDay = scanner.nextInt();
+		
 			
 			if (nbOfDay >= 1 && nbOfDay <= 366) {
 				
@@ -45,21 +44,19 @@ public class HandlerDate {
 				
 //				 Affichage du résultat final
 				if (nbOfDay == 1) resultStr = resultStr.replace("ème", "er");
-				System.out.printf(
-					resultStr,
-					nbOfDay,
-					datesBuilder[ARRAY_OF_DAYS][iDay],
-					(dayNumber == 1 ? dayNumber + "er" : dayNumber),
-					datesBuilder[ARRAY_OF_MONTHS][iMonth]
-				);
-				System.out.println(" (Sous-entendu : lundi est le premier jour de l'année.)\n\n");
+//				System.out.printf(
+//					resultStr,
+//					nbOfDay,
+//					datesBuilder[ARRAY_OF_DAYS][iDay],
+//					(dayNumber == 1 ? dayNumber + "er" : dayNumber),
+//					datesBuilder[ARRAY_OF_MONTHS][iMonth]
+//				);
+//				System.out.println(" (Sous-entendu : lundi est le premier jour de l'année.)\n\n");
 				
 			} else {
-				System.out.println("La valeur saisie n'est pas correcte...\n");
+				// System.out.println("La valeur saisie n'est pas correcte...\n");
 			}
-		} catch (InputMismatchException e) {
-			System.out.println("La saisie n'a pa pu être récupérée...\n");
-		}
+		
 	}
 	
 	private int searchMonth() {
