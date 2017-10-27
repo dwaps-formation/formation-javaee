@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="./fragments/header.jsp"%>
 	<%@ include file="./fragments/nav.jsp"%>
-	<%@ include file="./fragments/content.jsp"%>
+	<%@ include file="./fragments/body.jsp"%>
 	<%@ include file="./fragments/footer.jsp"%>
 
 
