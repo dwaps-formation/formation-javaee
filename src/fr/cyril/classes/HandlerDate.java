@@ -16,7 +16,7 @@ public class HandlerDate {
 	};
 	
 	private int nbOfDay = 0;
-	
+	private String dateResult;
 	
 	public int getNbOfDay() {
 		return nbOfDay;
@@ -24,6 +24,15 @@ public class HandlerDate {
 
 	public void setNbOfDay(int nbOfDay) {
 		this.nbOfDay = nbOfDay;
+	}
+	
+
+	public String getDateResult() {
+		return dateResult;
+	}
+
+	public void setDateResult(String paramDate) {
+		this.dateResult = paramDate;
 	}
 
 	//public void displayDate(Scanner scanner) { // supprimer du code pour pouvoir l'utilisé en jee
@@ -44,7 +53,8 @@ public class HandlerDate {
 				
 //				 Affichage du résultat final
 				if (nbOfDay == 1) resultStr = resultStr.replace("ème", "er");
-				System.out.printf(
+				//System.out.printf( // supprimer du code pour pouvoir l'utilisé en jee
+						dateResult = String.format(
 					resultStr,
 					nbOfDay,
 					datesBuilder[ARRAY_OF_DAYS][iDay],
