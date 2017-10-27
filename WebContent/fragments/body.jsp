@@ -8,10 +8,14 @@ String result = "";
 String jourN = request.getParameter("jour");
 
 if (null != jourN && "" != jourN) {
-	int jour =  Integer.parseInt(jourN);
-	
-	hd.setNbOfDay(jour);
-	result = hd.displayDate();
+	try {
+		int jour =  Integer.parseInt(jourN);
+		
+		hd.setNbOfDay(jour);
+		result = hd.displayDate();
+	} catch (Exception e) {
+		result = "<span class=\"error\">La valeur saisie n'est pas correcte...</span>";
+	}
 }
 %>
 <div class="container">
