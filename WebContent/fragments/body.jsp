@@ -10,7 +10,7 @@
          <table>
             <tr>
                <td>Num&eacute;ro du jour</td>
-               <td><input type="number" name="numDay" value= "" /></td>
+               <td><input type="text" name="numDay" value= "" /></td>
             </tr>
             <tr>
                <td colspan="2">                   
@@ -26,6 +26,16 @@
 
 	<%
 	if(request.getParameter("numDay") != null)
-		out.println("<p>" + monCalendrier.displayDate(Integer.valueOf(request.getParameter("numDay"))) + "</p>");
+	{
+		
+		try
+		{
+			out.println("<p>" + monCalendrier.displayDate(Integer.valueOf(request.getParameter("numDay"))) + "</p>");
+		}
+		catch(Exception e)
+		{
+			out.println("<p>Le num&eacute;ro de jour doit &ecirc;tre compris entre 1 et 366.</p>");
+		}
+	}
 	%>
 </div>

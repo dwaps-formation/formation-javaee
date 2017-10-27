@@ -23,6 +23,9 @@ public class HandlerDate {
 		int dayNumber = searchDayNumber(iMonth); // calcul le numéro de jour dans son mois
 		int iDay = searchDay(); // récupère l'index du jour
 		
+		if(numOfDay <= 0 || numOfDay > 366)
+			return "Le num&eacutero de jour doit &ecirc;tre compris entre 1 et 366.";
+		
 		 String result = String.format(
 				resultPattern,
 				nbOfDay,
