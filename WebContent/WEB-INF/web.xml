@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>LogicielFacturation</display-name>
+  <context-param>
+    <param-name>author</param-name>
+    <param-value>DWAPS Formation - Michael Cornillon</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>Home</servlet-name>
+    <jsp-file>/WEB-INF/jsp/home.jsp</jsp-file>
+    <init-param>
+      <param-name>title</param-name>
+      <param-value>Page d'accueil</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/accueil</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ProcessingBills</servlet-name>
+    <servlet-class>fr.dwaps.servlets.ProcessingBills</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessingBills</servlet-name>
+    <url-pattern>/factures</url-pattern>
+    <url-pattern>/factures/add</url-pattern>
+    <url-pattern>/factures/edit</url-pattern>
+    <url-pattern>/factures/delete</url-pattern>
+  </servlet-mapping>
+</web-app>
