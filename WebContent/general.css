@@ -20,7 +20,15 @@
 				background-color:#eef2c8;
 				padding: 20px;
 				float:left;
+				font-family: 'Roboto', sans-serif;
+				font-size:14px;
 				}
+				
+			.titre{font-size:18px;
+				    padding-bottom:20px;
+				}
+
+      		.button{padding: 20px;}
 
 			#body{
 				overflow:auto;

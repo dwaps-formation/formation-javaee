@@ -5,25 +5,34 @@
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</div>
 	<div id="rbody">
-	<%! String resultat = "Calcul date"; 
-	class Chien{
-		private int age;
-		public Chien(int age){
-			this.age = age;
-		}
-		public int edit(){
-			return age;
-		}
-	}
-	
-	
+	<div class="titre">Calcul date</div>
+	<%@ page 
+		import ="fr.dates.classes.HandlerDate" %>
+
+	<%
+		String reponse = "";
+		String strofday = request.getParameter("nbofday" );	
 	%>
-	<% resultat += " à votre choix";
-		Chien chien = new Chien(3);
-		
+	<%-- strofday --%>
+	
+	<% 	if (strofday != null){
+		int nbofday = Integer.parseInt(strofday);
+		HandlerDate handler = new HandlerDate();
+		reponse = handler.displayDate(nbofday);
+		}else{
+			reponse = "";
+		}
 	%>
-	<%= resultat %>
-	<%= "Choisir un numero de jour de l'annee [1-365] "%>
-	<%= chien.edit() %>
+	<form action="">
+    <div>
+        <label for="nbofday">Quel jour :</label>
+        <input type="text" id="nbofday" name="nbofday"/>
+    </div>
+	<div class="button">
+        <button type="submit">Envoyer</button>
+    </div>
+	</form>
+	<br>
+	<%= reponse %>
 	</div>
 </div>
