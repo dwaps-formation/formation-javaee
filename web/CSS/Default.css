@@ -1,0 +1,14 @@
+body {
+    width: 800px;
+    margin: auto;
+    background-color: black;
+    color: darkgray;
+}
+
+a, a:visited, a:hover { 
+    color: darkgray;
+    text-decoration: none;
+}
+a:hover {
+    font-style: italic;
+}
