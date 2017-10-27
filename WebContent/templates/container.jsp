@@ -1,4 +1,5 @@
 <%@ page import="org.hezzel.formation.tp.*" %>
+<%@ page errorPage="templates/containerError.jsp" %>
 <!-- CONTAINER -->
 <div id="container">
   <h1>TP Webdynamic - page principale</h1>
