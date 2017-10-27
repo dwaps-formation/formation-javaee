@@ -1,0 +1,9 @@
+@import url("header.css");
+@import url("footer.css");
+@import url("body.css");
+@import url("menu.css");
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
