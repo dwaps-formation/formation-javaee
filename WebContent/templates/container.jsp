@@ -16,7 +16,7 @@
     }
     else
     {
-      %> <form action="home"><input name="day" type="number" /><input type="submit" /></form> <%
+      %> <form action="home"><fieldset><input name="day" type="number" /></fieldset><fieldset><input type="submit" /></fieldset></form> <%
     }
   %>
 </div>
