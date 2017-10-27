@@ -5,6 +5,5 @@
   <%
     output = "Test";
   %>
-  auieauieauei
   <%= output %>
 </div>
