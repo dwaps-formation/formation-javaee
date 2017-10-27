@@ -4,28 +4,25 @@
     Author     : Adrien
 --%>
 
-<%@ page contentType="text/html" pageEncoding="UTF-8" import="fr.AdrienBourgon.Classes.*" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8" import="fr.AdrienBourgon.Classes.*" errorPage="../Error.jsp" %>
 <%! HandlerDate HD = new HandlerDate(); %>
 <%
     String Date = "";
     if(request.getParameter("Days") != null)
     {
         String S = request.getParameter("Days");
+        
         if(S.length() > 0)
         {
-            try {
             int Days = Integer.valueOf(S);
             HD = new HandlerDate();
             Date = HD.displayDate(Days);
-            }
-            catch (Exception e)
-            { }
         }
     }
 %>
 <div>    
     <form method="get" action="#" >
-        <input type="number" id="Days" name="Days" placeholder="Day of the year"/>
+        <input type="number" id="Days" name="Days" placeholder="Day of the year (1-366)"/>
         <input type="submit" value="Envoyer" />
     </form>
     <div>

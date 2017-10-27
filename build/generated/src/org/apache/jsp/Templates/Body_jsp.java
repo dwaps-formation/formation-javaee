@@ -34,7 +34,7 @@ public final class Body_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
-      			null, true, 8192, true);
+      			"../Error.jsp", true, 8192, true);
       _jspx_page_context = pageContext;
       application = pageContext.getServletContext();
       config = pageContext.getServletConfig();
@@ -52,22 +52,19 @@ public final class Body_jsp extends org.apache.jasper.runtime.HttpJspBase
     if(request.getParameter("Days") != null)
     {
         String S = request.getParameter("Days");
+        
         if(S.length() > 0)
         {
-            try {
             int Days = Integer.valueOf(S);
             HD = new HandlerDate();
             Date = HD.displayDate(Days);
-            }
-            catch (Exception e)
-            { }
         }
     }
 
       out.write("\n");
       out.write("<div>    \n");
       out.write("    <form method=\"get\" action=\"#\" >\n");
-      out.write("        <input type=\"number\" id=\"Days\" name=\"Days\" placeholder=\"Day of the year\"/>\n");
+      out.write("        <input type=\"number\" id=\"Days\" name=\"Days\" placeholder=\"Day of the year (1-366)\"/>\n");
       out.write("        <input type=\"submit\" value=\"Envoyer\" />\n");
       out.write("    </form>\n");
       out.write("    <div>\n");
