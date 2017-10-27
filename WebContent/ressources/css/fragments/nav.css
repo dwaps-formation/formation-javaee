@@ -1,0 +1,7 @@
+@charset "UTF-8";
+li {
+	display: inline-block;
+	background-color: navy;
+	padding: 5px;
+	border-radius: 10px;
+}
