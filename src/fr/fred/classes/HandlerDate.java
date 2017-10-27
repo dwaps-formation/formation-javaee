@@ -6,8 +6,6 @@ public class HandlerDate {
 	private final int MONTH_31DAYS = 31;
 	private final int MONTH_30DAYS = 30;
 	
-	public boolean ACTIVE_DEBUG_MODE = false;
-	
 	private String datesBuilder[][] = {
 		{ "", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre" },
 		{ "", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche" }
@@ -40,10 +38,10 @@ public class HandlerDate {
 				(dayNumber == 1 ? dayNumber + "er" : dayNumber),
 				datesBuilder[ARRAY_OF_MONTHS][iMonth]
 			);
-			returnStr += " (Sous-entendu : lundi est le premier jour de l'année.)<br /><br />";
+			returnStr += " (Sous-entendu : lundi est le premier jour de l'année.)";
 			
 		} else {
-			returnStr = "La valeur saisie n'est pas correcte...<br />";
+			returnStr = "<span class=\"error\">La valeur saisie n'est pas correcte...</span>";
 		}
 		
 		return returnStr;
@@ -98,28 +96,15 @@ public class HandlerDate {
 		if (nbOfDay > MONTH_31DAYS) { // Si la saisie utilisateur dépasse le mois de janvier...
 			for (int i = iMonth-1; i > 0; i--) {
 				boolean julyToJanuary = i < 8;
-				String monthName = datesBuilder[ARRAY_OF_MONTHS][i]; // for debug
-				int typeOfMonth; // for debug
 				
 				if (i % 2 == 0) {
-					typeOfMonth = (julyToJanuary ? MONTH_30DAYS : MONTH_31DAYS);
 					daysFromFirst -= julyToJanuary ? MONTH_30DAYS : MONTH_31DAYS;
 				} else {
-					typeOfMonth = (julyToJanuary ? MONTH_31DAYS : MONTH_30DAYS);
 					daysFromFirst -= julyToJanuary ? MONTH_31DAYS : MONTH_30DAYS;
 				}
 				
 				if (i == 2) { // cas de février
-					typeOfMonth = MONTH_30DAYS-1;
 					daysFromFirst++;
-				}
-				
-				if (ACTIVE_DEBUG_MODE) {
-					debug(
-						monthName,
-						typeOfMonth,
-						daysFromFirst
-					);
 				}
 				
 				dayNumber = daysFromFirst;
@@ -127,9 +112,5 @@ public class HandlerDate {
 		}
 		
 		return dayNumber;
-	}
-	
-	private void debug(String monthName, int daysOfMonth, int reste) {
-		System.out.println("   On a retiré " + monthName + " (" + daysOfMonth + " jours) => Il reste " + reste + " jours.");
 	}
 }
