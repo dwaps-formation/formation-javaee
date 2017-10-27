@@ -1,8 +1,8 @@
 <!-- NAVIGATION -->
 	<nav>
 		<ul>
-			<li>Accueil</li>
-			<li>Présentation</li>
-			<li>Contact</li>
+			<a href="href="#"><li>Accueil</li></a>
+			<a href="#"><li>Présentation</li></a>
+			<a href="#"><li>Contact</li></a>
 		</ul>
 	</nav>

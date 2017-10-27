@@ -4,46 +4,34 @@
 	
 	<body>
 	<div id="wrapper">
-	MON APPLICATION<br>
-	<p>
+	<h1>MON APPLICATION ! </h1><br><br>
+	
+	
+	
+	<!-- DECLARATION VARIABLE = INITIALISATION  METHODE INIT-->
+	
+	<%! 	
+		HandlerDate handlerDate = new HandlerDate(); %>
 		
-	<%! public class PremiereClasse {
-
-		public static void main(String[] args) {
-			
-			Scanner sc = new Scanner(System.in);
-			HandlerDate handlerDate = new HandlerDate();
-			boolean run = true;
-			
-			while (run) {
-				handlerDate.ACTIVE_DEBUG_MODE = true;	
-				handlerDate.displayDate(sc);
-				
-				System.out.print("Voulez-vous recommencer [On] ? ");
-				sc.nextLine();
-				String userResponse = sc.nextLine();
-				
-				if (userResponse.equals("n")) {
-					break;
-				}
-			}
-			
-			System.out.print("A bientôt ! :)");
-			sc.close();
+		
+	<!-- CODE  = TRANSFORMATION  METHODE SERVICE -->
+	 	
+	<% 	String parameter = request.getParameter("numero");
+		if(parameter != null && parameter != "" ){
+			handlerDate.setNbOfDay(Integer.parseInt(parameter));
+			handlerDate.ACTIVE_DEBUG_MODE = true;
+			String returnStr = handlerDate.displayDate();
+			out.print(returnStr);	
 		}
+	%>
 
-	} %>
-	<form name="form1" method="post" enctype="text/plain">
-  <pre>
-  
- 
-  <b>Votre Numero</b> <input type="text" name="numero" >
- 
-	              <input type="submit" value="   Envoyer   " >
-  </pre>
-</form>
-	<%= "ARRAY_OF_MONTHS"  %>
-	</p>
+		<form name="form1" method="get">
+	 					votre numero : <input type="number" name="numero" value="<% if(parameter != null) out.print(parameter);  %>">
+	 		             <br>  <br><input type="submit" value="Envoyer">
+	  
+		</form>
+	
+
 	
 	
 	</div>

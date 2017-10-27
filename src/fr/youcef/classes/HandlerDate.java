@@ -1,8 +1,5 @@
 package fr.youcef.classes;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class HandlerDate {
 	private final int ARRAY_OF_MONTHS = 0;
 	private final int ARRAY_OF_DAYS = 1;
@@ -12,20 +9,29 @@ public class HandlerDate {
 	public boolean ACTIVE_DEBUG_MODE = false;
 	
 	private String datesBuilder[][] = {
-		{ "", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre" },
+		{ "", "janvier", "f�vrier", "mars", "avril", "mai", "juin", "juillet", "ao�t", "septembre", "octobre", "novembre", "décembre" },
 		{ "", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche" }
 	};
 	
 	private int nbOfDay = 0;
 	
-	public void displayDate(Scanner scanner) {
+	public int getNbOfDay() {
+		return nbOfDay;
+	}
+	
+	public void setNbOfDay(int nbOfDay) {
+		this.nbOfDay=nbOfDay;
+	}
+	
+	public String displayDate() {
 		int iMonth = 0, iDay = 0, dayNumber = 0; // iMonth, iDay => index
-		String resultStr = "Le %dème jour correspond au %s %s %s.\n";
 		
-		System.out.print("Choisir un numéro de jour de l'année [1-365] : ");
+		String resultStr = "Le %d�me jour correspond au %s %s %s.\n";
+		String returnStr = "";
+		System.out.print("Choisir un num�ro de jour de l'ann�e [1-365] : ");
 		
-		try {
-			nbOfDay = scanner.nextInt();
+		
+			
 			
 			if (nbOfDay >= 1 && nbOfDay <= 366) {
 				
@@ -35,7 +41,7 @@ public class HandlerDate {
 				
 //				 Affichage du résultat final
 				if (nbOfDay == 1) resultStr = resultStr.replace("ème", "er");
-				System.out.printf(
+				returnStr = String.format(
 					resultStr,
 					nbOfDay,
 					datesBuilder[ARRAY_OF_DAYS][iDay],
@@ -45,11 +51,11 @@ public class HandlerDate {
 				System.out.println(" (Sous-entendu : lundi est le premier jour de l'année.)\n\n");
 				
 			} else {
-				System.out.println("La valeur saisie n'est pas correcte...\n");
+				returnStr = String.format("La valeur saisie n'est pas correcte...\n");
 			}
-		} catch (InputMismatchException e) {
-			System.out.println("La saisie n'a pa pu être récupérée...\n");
-		}
+		
+			return returnStr;
+		
 	}
 	
 	private int searchMonth() {

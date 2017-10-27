@@ -1,7 +1,7 @@
 <%@ page
-	contentType="text/html;
-	charset=UTF-8"
-%>
+	contentType="text/html; charset=UTF-8"
+	errorPage="templates/error.jsp"
+ %>
 
 
 <!doctype html>
@@ -9,6 +9,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="ressources/CSS/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Hanalei" rel="stylesheet">
 	<title>Ma page de test</title>
 </head>
 

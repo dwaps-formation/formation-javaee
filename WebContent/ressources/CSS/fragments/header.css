@@ -1,8 +1,12 @@
 header{	
-		height: 20vh;
+		height: 25vh;
 		width:100%;
 		position: absolute:
 		top:0;
 		left:0;
 		background-color:green;
 		}
+#logo{	background-image : url("../../images/loup.jpg");
+		height : 100%;
+		width : 20%;
+}
