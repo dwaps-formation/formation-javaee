@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="TP_WebDynamic">
+    <wb-module deploy-name="TP WebDynamic">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="TP_WebDynamic"/>
-        <property name="java-output-path" value="/TP_WebDynamic/build/classes"/>
+        <property name="java-output-path" value="/TP WebDynamic/build/classes"/>
+        <property name="context-root" value="TP WebDynamic"/>
     </wb-module>
 </project-modules>
