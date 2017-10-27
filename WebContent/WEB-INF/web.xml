@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>jee1</display-name>
+  <servlet>
+  	<servlet-name>HomeJee-1</servlet-name>		<!--le nom que je donne a la servlet -->
+  	<jsp-file>/index.jsp</jsp-file> 			<!-- / racine du projet -->
+  </servlet>
+  <servlet-mapping> <!-- cette balise servira de lien entre la servlet  -->
+  <servlet-name>HomeJee-1</servlet-name> <!--le nom que je donne a la servlet -->
+  <url-pattern>/test</url-pattern> <!-- l'url qui va apparaitre dans notre navigateur quand lorsque l'on ouvrira EX :http://localhost:8088/Jee-1/test# -->
+  </servlet-mapping>
+</web-app>

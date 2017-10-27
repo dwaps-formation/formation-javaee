@@ -1,0 +1,11 @@
+body
+{
+
+background-color :black; /* couleur de fond*/
+background-image: url("../img/bg.jpg");
+/*background-color: #E5E5E5; /* couleur de font de page*/
+color: yellow; /*couleur de texte*/
+font-family: Verdana, Trebuchet MS, Comic Sans MS, Arial; /*police d'ecriture*/
+font-size: 15px; /*taille de la police*/
+
+}

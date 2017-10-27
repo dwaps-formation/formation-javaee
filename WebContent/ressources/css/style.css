@@ -1,0 +1,15 @@
+/*******************
+**feuille de style**
+***  creer par : ***
+*****          *****
+**  Cyril OLLIER  **
+*   ------------   *
+**   lab-net.fr   **
+***     2015     ***
+*******************/
+
+@import "general.css";
+
+@import "fragments/head.css";
+@import "fragments/body.css";
+@import "fragments/footer.css";
