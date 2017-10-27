@@ -1,0 +1,24 @@
+.container {
+	margin: 0 auto;
+	padding: 60px 30px;
+	max-width: 980px;
+	background-color: #eee;
+	min-height: 100%;
+	box-sizing: border-box;
+}
+
+.result {
+	border: dotted 3px #aaa;
+	border-radius: 10px;
+	background-color: #fff;
+	padding: 5px 20px;
+}
+
+.result p {
+	margin: 0;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+}
