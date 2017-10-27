@@ -7,7 +7,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Index</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="CSS/Default.css" />
     </head>
