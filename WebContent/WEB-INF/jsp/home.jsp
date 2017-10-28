@@ -16,7 +16,7 @@
 	
 	<%@ include file="/WEB-INF/fragments/header.jsp" %>
 	<%@ include file="/WEB-INF/fragments/menu.jsp" %>
-<%-- 	<%@ include file="/WEB-INF/fragments/body.jsp" %> --%>
+	<%@ include file="/WEB-INF/fragments/body.jsp" %>
 	<%@ include file="/WEB-INF/fragments/footer.jsp" %>
 	
     <script src="/ExJSP/resources/js/app.js"></script>

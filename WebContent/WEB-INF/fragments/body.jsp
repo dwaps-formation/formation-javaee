@@ -14,8 +14,8 @@
 	
 	<div id="app-section" class="section">
 	    <div class="card">
-	        <form>
-	            <input type="number" name="nbDay">
+	        <form action="" method="GET">
+	            <input type="number" name="nbDay" placeholder="N° de jour...">
 	            <br>
 	            <button type="submit">Go !</button>
 	        </form>
@@ -23,12 +23,15 @@
 				<%!
 				HandlerDate handlerDate = new HandlerDate();
 				int nbDay = 0;
+				String message = "";
 				%>
 				<%
 				String queryString = (String) request.getParameter("nbDay");
 				
-			    nbDay = Integer.parseInt(queryString);
-				String message = handlerDate.calculDate(nbDay);
+				if (null != queryString) {
+				    nbDay = Integer.parseInt(queryString);
+					message = handlerDate.calculDate(nbDay);
+				}
 				%>
 				<%= message %>
 	        </div>
