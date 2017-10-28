@@ -4,11 +4,7 @@
   
   <servlet>
   	<servlet-name>TestServlet1</servlet-name>
-  	<jsp-file>/Test1.jsp</jsp-file>
-  </servlet>
-  <servlet>
-  	<servlet-name>TestServlet2</servlet-name>
-  	<jsp-file>/test2jsp.jsp</jsp-file>
+  	<jsp-file>/javaee.jsp</jsp-file>
   </servlet>
   
   
@@ -18,10 +14,6 @@
   	<url-pattern>/home</url-pattern>
   </servlet-mapping>
   
-  <servlet-mapping>
-  	<servlet-name>TestServlet2</servlet-name>
-  	<url-pattern>/test2</url-pattern>
-  </servlet-mapping>
   
   
   

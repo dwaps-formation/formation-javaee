@@ -6,9 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Formation Java EE</title>
 <link rel="stylesheet" href="./ressources/css/styles.css">
-</head>
+</head>       
 <body>
-	<%@ include file="./fragments/header.jsp"%>
+<header><%@ include file="./fragments/header.jsp"%></header>
+	
 	<%@ include file="./fragments/nav.jsp"%>
 	<%@ include file="./fragments/body.jsp"%>
 	<%@ include file="./fragments/footer.jsp"%>
