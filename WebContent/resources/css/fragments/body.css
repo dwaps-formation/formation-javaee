@@ -117,6 +117,9 @@
     box-shadow: 3px 3px 5px #555;
 }
 #app-section #results {
+	line-height: 22px;
+	padding-left: 15px;
+	padding-right: 15px;
     padding-top: 50px;
     font-size: 0.8em;
 }

@@ -1,15 +1,9 @@
-${
-    navElements = {
-        'item1': 'Accueil',
-        'item2': 'Présentation',
-        'item3': 'Contact'
-    }; ''
-}
+${ tabs = [ 'Accueil', 'Présentation', 'Contact' ]; '' }
 
 <nav>
     <ul>
-        <li>${navElements.item1}</li>
-        <li>${navElements.item2}</li>
-        <li>${navElements.item3}</li>
+        <c:forEach items="${tabs}" var="tab">
+            <li>${tab}</li>
+        </c:forEach>
     </ul>
 </nav>

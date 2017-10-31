@@ -18,7 +18,9 @@
 	            <button type="submit">Go !</button>
 	        </form>
 	        <div id="results">
-	           ${ message }
+               <c:out value="${ message }">
+                    Veuillez saisir une valeur entre 1 et 366
+               </c:out>
 	        </div>
 	    </div>
 	</div>
