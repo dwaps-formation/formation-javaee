@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="/ExJSP/resources/css/styles.css">
+        <link rel="stylesheet" href="${pageContext.servletContext.contextPath += initParam.mainCSS}">
 		<title>Exercices JSP</title>
 	</head>
 	
@@ -19,6 +19,6 @@
 	<%@ include file="/WEB-INF/fragments/body.jsp" %>
 	<%@ include file="/WEB-INF/fragments/footer.jsp" %>
 	
-    <script src="/ExJSP/resources/js/app.js"></script>
+    <script src="${pageContext.servletContext.contextPath += initParam.mainJS}"></script>
 	</body>
 </html>

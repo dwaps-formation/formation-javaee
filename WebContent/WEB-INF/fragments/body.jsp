@@ -1,5 +1,3 @@
-<%@ page import="fr.dwaps.classes.HandlerDate" %>
-
 <div id="wrapper">
     <div id="home-section" class="section shown">
 	    <div class="card">
@@ -20,20 +18,7 @@
 	            <button type="submit">Go !</button>
 	        </form>
 	        <div id="results">
-				<%!
-				HandlerDate handlerDate = new HandlerDate();
-				int nbDay = 0;
-				String message = "";
-				%>
-				<%
-				String queryString = (String) request.getParameter("nbDay");
-				
-				if (null != queryString) {
-				    nbDay = Integer.parseInt(queryString);
-					message = handlerDate.calculDate(nbDay);
-				}
-				%>
-				<%= message %>
+	           ${ message }
 	        </div>
 	    </div>
 	</div>

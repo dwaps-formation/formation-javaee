@@ -2,6 +2,17 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>ExJSP</display-name>
   
+  <context-param>
+    <description>Chemin vers le fichier CSS principal</description>
+    <param-name>mainCSS</param-name>
+    <param-value>/resources/css/styles.css</param-value>
+  </context-param>
+  <context-param>
+    <description>Chemin vers le fichier JS principal</description>
+    <param-name>mainJS</param-name>
+    <param-value>/resources/js/app.js</param-value>
+  </context-param>
+  
 <!--   JSP -->
   <servlet>
     <servlet-name>Home</servlet-name>

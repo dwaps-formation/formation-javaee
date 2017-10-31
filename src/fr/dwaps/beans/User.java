@@ -11,11 +11,11 @@ public class User implements Serializable {
 	
 	public User() {}
 	
-	public String getFirstName() { return firstname; }
-	public String getLastName() { return lastname; }
+	public String getFirstname() { return firstname; }
+	public String getLastname() { return lastname; }
 	public int getAge() { return age; }
 	
-	public void setFirstName(String p) { firstname = p; }
-	public void setLastName(String p) { lastname = p; }
+	public void setFirstname(String p) { firstname = p; }
+	public void setLastname(String p) { lastname = p; }
 	public void setAge(int p) { age = p; }
 }

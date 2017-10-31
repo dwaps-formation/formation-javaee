@@ -8,13 +8,13 @@
     <head>
         <meta charset="UTF-8">
         <title>Erreur 404</title>
-        <link rel="stylesheet" href="/ExJSP/resources/css/styles.css">
+        <link rel="stylesheet" href="${pageContext.servletContext.contextPath += initParam.mainCSS}">
     </head>
     
 
     <body>
         <h1>Euh...</h1>
         <p>Vous êtes sûr d'avoir rentré un nombre là ?</p>
-        <p>Hop, hop, hop ! Retour à l'<a href="/ExJSP/home">accueil</a> !</p>
+        <p>Hop, hop, hop ! Retour à l'<a href="${pageContext.servletContext.contextPath}/home">accueil</a> !</p>
     </body>
 </html>
