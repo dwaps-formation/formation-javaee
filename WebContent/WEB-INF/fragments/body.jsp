@@ -13,7 +13,7 @@
 	<div id="app-section" class="section">
 	    <div class="card">
 	        <form action="" method="GET">
-	            <input type="number" name="nbDay" placeholder="N° de jour...">
+	            <input type="number" name="nbDay" placeholder="N° de jour..." autofocus>
 	            <br>
 	            <button type="submit">Go !</button>
 	        </form>
