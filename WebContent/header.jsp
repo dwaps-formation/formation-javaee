@@ -1,20 +1,13 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>Bloc 1</title>
-	<meta http-equiv="content-type" 
-		content="text/html;charset=utf-8" />
-		<link type="text/css" rel="stylesheet" href="webjv.css" />
-
-</head>
-
-<body>
-	<div id="contenu">
-		<div id="header">
-			<ul>
-				  <li><a href="#home">Home</a></li>
-				  <li><a href="#news">News</a></li>
-				  <li><a href="#contact">Contact</a></li>
-				  <li><a href="#about">About</a></li>
-			</ul>
-		</div>
+ <!--Header-->
+  	<h1 class="wsname">My Web-site</h1>
+    
+    <header class="menu">
+       <nav>
+          <ul class="nav inline-items">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Photos</a></li>
+            <li><a href="#">My Trips</a></li>
+         </ul>
+      </nav>
+    </header>
