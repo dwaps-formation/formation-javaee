@@ -15,7 +15,6 @@
   
 <%@ include file="header.jsp" %>
 <%@ include file="mainContents.jsp" %>
-<%@ include file="rightContents.jsp" %>
 <%@ include file="footer.jsp" %>
 
   </body>
