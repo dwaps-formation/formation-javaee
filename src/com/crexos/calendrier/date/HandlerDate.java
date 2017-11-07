@@ -34,7 +34,8 @@ public class HandlerDate {
 				datesBuilder[ARRAY_OF_MONTHS][iMonth]
 			);
 		
-		if (numOfDay == 1) result.replace("ème", "er");
+		if (numOfDay == 1)
+			result = result.replace("ème", "er");
 		
 		return result;
 	}

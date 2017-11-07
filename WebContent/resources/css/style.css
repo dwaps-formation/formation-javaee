@@ -1,3 +1,16 @@
 body {
 	background: #236666;
 }
+
+.roundedImage{
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
+}
+
+/* -ms-transform: rotate(7deg); /* IE 9 */
+/*    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+/*    transform: rotate(7deg);*/

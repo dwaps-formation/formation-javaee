@@ -1,4 +1,6 @@
-<%@ page contentType= "text/html;charset = UTF-8" %>
+<%@ page contentType= "text/html;charset = UTF-8" 
+errorPage = "/error.jsp"
+%>
 <!doctype html>
 <html lang="fr">
 	<head>

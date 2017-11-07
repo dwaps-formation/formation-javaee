@@ -38,4 +38,11 @@
 		}
 	}
 	%>
+	
+	<h3>Publicit&eacute;</h3>
+		<form method="GET" action="${pageContext.request.contextPath}/pub">
+			<input type="text" placeholder="Votre age..." name="age" />
+			<br />
+			<button type="submit">Go !</button>
+		</form>	
 </div>
