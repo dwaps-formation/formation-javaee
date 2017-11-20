@@ -1,6 +1,7 @@
 package fr.dwaps.servlets;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,14 +57,22 @@ public class Principale extends HttpServlet implements Constantes {
 		
 		String uri = request.getRequestURI();
 		boolean uriContainsFavori = uri.contains("favori");
+		String[] fragmentsUri = uri.split("/");
+		String nameOfPerson = uriContainsFavori? fragmentsUri[fragmentsUri.length-2] : fragmentsUri[fragmentsUri.length-1];
+		nameOfPerson = URLDecoder.decode(nameOfPerson, "UTF-8");
+		boolean redirect = false;
 		
 		for (Repertoire rep : reps) {
 			for (Personne p : rep.getListePersonnes()) {
-				p.setFavori(uriContainsFavori);
+				if (nameOfPerson.equals(p.getNom())) {
+					p.setFavori(uriContainsFavori);
+					redirect = true;
+					response.sendRedirect(getServletContext().getContextPath()+"/home");
+				}
 			}
 		}
 		
-		getServletContext().getRequestDispatcher(PAGE_HOME).forward(request, response);
+		if (!redirect) getServletContext().getRequestDispatcher(PAGE_HOME).forward(request, response);
 	}
 		
 	@Override
