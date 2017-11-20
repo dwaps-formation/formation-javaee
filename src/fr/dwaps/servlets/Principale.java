@@ -1,9 +1,12 @@
 package fr.dwaps.servlets;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +17,7 @@ import fr.dwaps.beans.Adresse;
 import fr.dwaps.beans.Personne;
 import fr.dwaps.beans.Repertoire;
 import fr.dwaps.utils.Constantes;
+import fr.dwaps.utils.Groupe;
 
 public class Principale extends HttpServlet implements Constantes {
 	private static final long serialVersionUID = 1L;
@@ -26,7 +30,6 @@ public class Principale extends HttpServlet implements Constantes {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		@SuppressWarnings("unchecked")
 		List<Repertoire> reps = (List<Repertoire>) getServletContext().getAttribute("reps");
-		int cpt = 0;
 		
 		if (null == reps) {
 			reps = new ArrayList<Repertoire>();
@@ -34,7 +37,9 @@ public class Principale extends HttpServlet implements Constantes {
 			reps.add(new Repertoire("Répertoire principale"));
 			reps.add(new Repertoire("Répertoire secondaire"));
 			
+			int cpt = 0;
 			Personne personne;
+			
 			for (String[][] contact : CONTACTS) {
 				personne = new Personne(
 					contact[1][0],
@@ -52,31 +57,66 @@ public class Principale extends HttpServlet implements Constantes {
 			}
 			
 			getServletContext().setAttribute("reps", reps);
+			getServletContext().setAttribute("groupes", Groupe.values());
 		}
-
 		
+		boolean redirect = checkIfIsFavori(request, reps);
+		
+		if (!redirect) {
+			getServletContext().getRequestDispatcher(PAGE_HOME).forward(request, response);
+		} else {
+			response.sendRedirect(request.getContextPath()+"/home");
+		}
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		@SuppressWarnings("unchecked")
+		List<Repertoire> reps = (ArrayList<Repertoire>) getServletContext().getAttribute("reps");
 		String uri = request.getRequestURI();
-		boolean uriContainsFavori = uri.contains("favori");
-		String[] fragmentsUri = uri.split("/");
-		String nameOfPerson = uriContainsFavori? fragmentsUri[fragmentsUri.length-2] : fragmentsUri[fragmentsUri.length-1];
-		nameOfPerson = URLDecoder.decode(nameOfPerson, "UTF-8");
-		boolean redirect = false;
+		String[] tab = uri.split("/");
+		String nomPersonne = tab[tab.length-1];
+		nomPersonne = URLDecoder.decode(nomPersonne, "UTF-8");
+		String[] groupesStr = request.getParameterValues("choixGroupes");
+		Set<Groupe> groupes = new HashSet<Groupe>();
 		
-		for (Repertoire rep : reps) {
-			for (Personne p : rep.getListePersonnes()) {
-				if (nameOfPerson.equals(p.getNom())) {
-					p.setFavori(uriContainsFavori);
-					redirect = true;
-					response.sendRedirect(getServletContext().getContextPath()+"/home");
+		if (null != groupesStr) {
+			for (String str : groupesStr) {
+				groupes.add(Groupe.valueOf(str));
+			}
+			
+			for (Repertoire rep : reps) {
+				for (Personne p : rep.getListePersonnes()) {
+					if (nomPersonne.equals(p.getNom())) {
+						for (Groupe g : groupes) {
+							p.addGroupe(g);
+						}
+					}
 				}
 			}
 		}
 		
-		if (!redirect) getServletContext().getRequestDispatcher(PAGE_HOME).forward(request, response);
+		response.sendRedirect(request.getContextPath()+"/home");
 	}
+	
+	private boolean checkIfIsFavori(HttpServletRequest req, List<Repertoire> rs)
+		throws UnsupportedEncodingException {
+		String uri = req.getRequestURI();
+		boolean uriContainsFavori = uri.contains("favori");
+		String[] tab = uri.split("/");
+		String nomPersonne = uriContainsFavori ? tab[tab.length-2] : tab[tab.length-1];
+		nomPersonne = URLDecoder.decode(nomPersonne, "UTF-8");
 		
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		for (Repertoire rep : rs) {
+			for (Personne p : rep.getListePersonnes()) {
+				if (nomPersonne.equals(p.getNom())) {
+					p.setFavori(uriContainsFavori);
+					return true;
+				}
+			}
+		}
+		
+		return false;
 	}
 }
 

@@ -1,18 +1,29 @@
 package fr.dwaps.beans;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import fr.dwaps.utils.Groupe;
+
 public class Personne {
 	private String nom;
 	private String prenom;
 	private String tel;
 	private Adresse adresse;
 	private boolean favori;
+	private Set<Groupe> groupes;
 	
-	public Personne() {}
+	public Personne() {
+		groupes = new HashSet<Groupe>();
+		groupes.add(Groupe.CONTACTS);
+	}
 	public Personne(String nom, String prenom, String tel, Adresse adresse) {
+		this();
 		setNom(nom);
 		setPrenom(prenom);
 		setTel(tel);
 		setAdresse(adresse);
+		groupes.add(Groupe.CONTACTS);
 	}
 	
 	public String getNom() {
@@ -44,5 +55,14 @@ public class Personne {
 	}
 	public void setFavori(boolean favori) {
 		this.favori = favori;
+	}
+	public Set<Groupe> getGroupes() {
+		return groupes;
+	}
+	public void addGroupe(Groupe groupe) {
+		this.groupes.add(groupe);
+	}
+	public void setGroupes(Set<Groupe> groupes) {
+		this.groupes = groupes;
 	}
 }
