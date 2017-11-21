@@ -1,4 +1,4 @@
-package fr.dwaps.beans;
+package fr.dwaps.model.beans;
 
 public class Adresse {
 	private String voie;

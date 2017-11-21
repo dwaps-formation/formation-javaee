@@ -1,9 +1,9 @@
-package fr.dwaps.beans;
+package fr.dwaps.model.beans;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import fr.dwaps.utils.Groupe;
+import fr.dwaps.model.Groupe;
 
 public class Personne {
 	private String nom;

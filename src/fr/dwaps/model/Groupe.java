@@ -1,4 +1,4 @@
-package fr.dwaps.utils;
+package fr.dwaps.model;
 
 public enum Groupe {
 	CONTACTS("Mes contacts"),
@@ -6,13 +6,13 @@ public enum Groupe {
 	FAMILLE("Ma famille"),
 	COLLEGUES("Mes collègues");
 	
-	private String str;
+	String str;
 	
 	Groupe(String str) {
 		this.str = str;
 	}
 	
-	public String definition() {
+	public String getDefinition() {
 		return str;
 	}
 }

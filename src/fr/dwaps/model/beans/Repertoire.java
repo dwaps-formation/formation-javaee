@@ -1,4 +1,4 @@
-package fr.dwaps.beans;
+package fr.dwaps.model.beans;
 
 import java.util.ArrayList;
 import java.util.List;

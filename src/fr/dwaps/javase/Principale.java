@@ -1,13 +1,14 @@
 package fr.dwaps.javase;
 
+import static fr.dwaps.model.Constantes.CONTACTS;
+
 import java.util.List;
 
-import fr.dwaps.beans.Adresse;
-import fr.dwaps.beans.Personne;
-import fr.dwaps.beans.Repertoire;
-import fr.dwaps.utils.Constantes;
+import fr.dwaps.model.beans.Adresse;
+import fr.dwaps.model.beans.Personne;
+import fr.dwaps.model.beans.Repertoire;
 
-public class Principale extends Object implements Constantes {
+public class Principale {
 	public static void main(String[] args) {
 		Repertoire repPrincipal = new Repertoire("Répertoire principal");
 		
@@ -37,6 +38,7 @@ public class Principale extends Object implements Constantes {
 				System.out.println();
 			}
 		}
+		
 	}
 }
 

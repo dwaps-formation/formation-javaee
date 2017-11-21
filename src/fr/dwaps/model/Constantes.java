@@ -1,4 +1,4 @@
-package fr.dwaps.utils;
+package fr.dwaps.model;
 
 public interface Constantes {
 	static final String[][][] CONTACTS = {

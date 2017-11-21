@@ -6,6 +6,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="perso" %>
     
 <!DOCTYPE html>
 <html>
@@ -37,6 +38,9 @@
 		  }
 		  .groupes-admin form {
 		      text-align: left;
+		  }
+		  .groupes-admin label {
+		      cursor: pointer;
 		  }
 		</style>
 	</head>
@@ -83,17 +87,30 @@
 					                   <input
 					                       type="checkbox"
 					                       name="choixGroupes"
+					                       id="${contact.nom}${groupe}"
 					                       value="${groupe}" />
-					                       ${groupe}
+					                       <label for="${contact.nom}${groupe}">
+					                       <perso:capitalizeFirstLetter data="${groupe}" result="groupe">
+					                           ${groupe}
+					                       </perso:capitalizeFirstLetter>
+				                           </label>
                                         <br />
 						            </c:if>
 						        </c:forEach>
-							    <button type="submit">Ok</button>
+                                <c:choose>
+                                      <c:when test="${contact.groupes.size() == fn:length(groupes)}">
+                                            <a href="<c:url value='/home/${contact.nom}/resetGroupes'/>">Reset</a>
+                                      </c:when>
+                                      <c:otherwise>
+                                            <button type="submit">Ok</button>
+                                      </c:otherwise>
+                                </c:choose>
 							</form>
 		              		</td>
 		              		<td>
 		              		<c:forEach items="${contact.groupes}" var="groupe">
-				                ${groupe}
+				                ${groupe.definition}
+				                <br />
 		              		</c:forEach>
 		              		</td>
 		              	</tr>

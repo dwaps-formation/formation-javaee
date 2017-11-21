@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.dwaps.beans.Adresse;
-import fr.dwaps.beans.Personne;
-import fr.dwaps.beans.Repertoire;
-import fr.dwaps.utils.Constantes;
-import fr.dwaps.utils.Groupe;
+import fr.dwaps.model.Constantes;
+import fr.dwaps.model.Groupe;
+import fr.dwaps.model.beans.Adresse;
+import fr.dwaps.model.beans.Personne;
+import fr.dwaps.model.beans.Repertoire;
 
 public class Principale extends HttpServlet implements Constantes {
 	private static final long serialVersionUID = 1L;
@@ -61,6 +61,7 @@ public class Principale extends HttpServlet implements Constantes {
 		}
 		
 		boolean redirect = checkIfIsFavori(request, reps);
+		if (!redirect) redirect = checkIfResetGroupes(request, reps);
 		
 		if (!redirect) {
 			getServletContext().getRequestDispatcher(PAGE_HOME).forward(request, response);
@@ -99,8 +100,7 @@ public class Principale extends HttpServlet implements Constantes {
 		response.sendRedirect(request.getContextPath()+"/home");
 	}
 	
-	private boolean checkIfIsFavori(HttpServletRequest req, List<Repertoire> rs)
-		throws UnsupportedEncodingException {
+	private boolean checkIfIsFavori(HttpServletRequest req, List<Repertoire> rs) throws UnsupportedEncodingException {
 		String uri = req.getRequestURI();
 		boolean uriContainsFavori = uri.contains("favori");
 		String[] tab = uri.split("/");
@@ -112,6 +112,30 @@ public class Principale extends HttpServlet implements Constantes {
 				if (nomPersonne.equals(p.getNom())) {
 					p.setFavori(uriContainsFavori);
 					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean checkIfResetGroupes(HttpServletRequest request, List<Repertoire> reps) throws UnsupportedEncodingException {
+		String uri = request.getRequestURI();
+		boolean resetGroupes = uri.contains("resetGroupes");
+		String[] tab = uri.split("/");
+		String nomPersonne = resetGroupes ? tab[tab.length-2] : "";
+		nomPersonne = URLDecoder.decode(nomPersonne, "UTF-8");
+
+		if (null != nomPersonne && !nomPersonne.isEmpty()) {
+			for (Repertoire rep : reps) {
+				for (Personne p : rep.getListePersonnes()) {
+					if (nomPersonne.equals(p.getNom())) {
+						if (resetGroupes) {
+							p.getGroupes().clear();
+							p.addGroupe(Groupe.CONTACTS);
+							return true;
+						}
+					}
 				}
 			}
 		}
