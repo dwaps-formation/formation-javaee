@@ -48,6 +48,8 @@
 
 	<body>
 	
+	   <h1><a href="<c:url value='/home/deconnexion'/>">Deconnexion</a></h1>
+	
 	   <c:forEach items="${applicationScope.reps}" var="rep">
 	   <c:if test="${!empty rep.listePersonnes}">
 		   <h1>${ rep.nom == '' ? 'Pas de nom' : rep.nom }</h1>

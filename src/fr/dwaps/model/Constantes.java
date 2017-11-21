@@ -1,7 +1,7 @@
 package fr.dwaps.model;
 
-public interface Constantes {
-	static final String[][][] CONTACTS = {
+public final class Constantes {
+	public static final String[][][] CONTACTS = {
 		{
 			{ "56 av des Charognards", "65555",  "Paris" }, // Adresse : indice 0
 			{ "Dupont", "Georges", "0867564534" } // Personne : indice 1

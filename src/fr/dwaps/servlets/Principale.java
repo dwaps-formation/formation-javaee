@@ -13,13 +13,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.dwaps.model.Constantes;
+import static fr.dwaps.model.Constantes.*;
+
+import fr.dwaps.filters.CheckAccess;
 import fr.dwaps.model.Groupe;
 import fr.dwaps.model.beans.Adresse;
 import fr.dwaps.model.beans.Personne;
 import fr.dwaps.model.beans.Repertoire;
 
-public class Principale extends HttpServlet implements Constantes {
+public class Principale extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String PAGE_HOME = "/WEB-INF/home.jsp";
        
@@ -28,40 +30,46 @@ public class Principale extends HttpServlet implements Constantes {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		@SuppressWarnings("unchecked")
-		List<Repertoire> reps = (List<Repertoire>) getServletContext().getAttribute("reps");
+		boolean redirect = true;
 		
-		if (null == reps) {
-			reps = new ArrayList<Repertoire>();
+		if (request.getRequestURI().contains("deconnexion")) {
+			CheckAccess.userAllowed = false;
+		} else {
+			@SuppressWarnings("unchecked")
+			List<Repertoire> reps = (List<Repertoire>) getServletContext().getAttribute("reps");
 			
-			reps.add(new Repertoire("Répertoire principale"));
-			reps.add(new Repertoire("Répertoire secondaire"));
-			
-			int cpt = 0;
-			Personne personne;
-			
-			for (String[][] contact : CONTACTS) {
-				personne = new Personne(
-					contact[1][0],
-					contact[1][1],
-					contact[1][2],
-					new Adresse(
-						contact[0][0],
-						contact[0][1],
-						contact[0][2]
-						)
-				);
+			if (null == reps) {
+				reps = new ArrayList<Repertoire>();
 				
-				reps.get(cpt%2).addPersonne(personne);
-				cpt++;
+				reps.add(new Repertoire("Répertoire principale"));
+				reps.add(new Repertoire("Répertoire secondaire"));
+				
+				int cpt = 0;
+				Personne personne;
+				
+				for (String[][] contact : CONTACTS) {
+					personne = new Personne(
+						contact[1][0],
+						contact[1][1],
+						contact[1][2],
+						new Adresse(
+							contact[0][0],
+							contact[0][1],
+							contact[0][2]
+							)
+					);
+					
+					reps.get(cpt%2).addPersonne(personne);
+					cpt++;
+				}
+				
+				getServletContext().setAttribute("reps", reps);
+				getServletContext().setAttribute("groupes", Groupe.values());
 			}
 			
-			getServletContext().setAttribute("reps", reps);
-			getServletContext().setAttribute("groupes", Groupe.values());
+			redirect = checkIfIsFavori(request, reps);
+			if (!redirect) redirect = checkIfResetGroupes(request, reps);
 		}
-		
-		boolean redirect = checkIfIsFavori(request, reps);
-		if (!redirect) redirect = checkIfResetGroupes(request, reps);
 		
 		if (!redirect) {
 			getServletContext().getRequestDispatcher(PAGE_HOME).forward(request, response);
