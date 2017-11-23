@@ -19,8 +19,8 @@ import javax.servlet.annotation.WebFilter;
 	dispatcherTypes=DispatcherType.REQUEST
 )
 public class CheckAccess implements Filter {
-	private String pseudo;
-	private String pwd;
+	private String[] pseudos;
+	private String[] pwds;
 	
 	public static boolean userAllowed;
 
@@ -31,8 +31,10 @@ public class CheckAccess implements Filter {
 			Properties prop = new Properties();
 			try {
 				prop.load(fileUsers);
-				pseudo = prop.getProperty("pseudo");
-				pwd = prop.getProperty("passwd");
+				String allPseudos = prop.getProperty("pseudos");
+				String allPasswds = prop.getProperty("pwds");
+				pseudos = allPseudos.split("#");
+				pwds = allPasswds.split("#");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -41,19 +43,19 @@ public class CheckAccess implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		String pseudoClient = "", pwdClient = "";
 		
 		if (!CheckAccess.userAllowed) {
-			if (null != this.pseudo && null != this.pwd) {
+			if (null != this.pseudos && null != this.pwds) {
 				
-				
-				String pseudoClient = request.getParameter("pseudo");
-				String pwdClient = request.getParameter("pwd");
+				pseudoClient = request.getParameter("pseudo");
+				pwdClient = request.getParameter("pwd");
 				
 				if (null != pseudoClient && null != pwdClient) {
-					if (pseudoClient.equals(this.pseudo) && pwdClient.equals(this.pwd)) {
-						CheckAccess.userAllowed = true;
-					} else {
-						request.setAttribute("pseudo", pseudoClient);
+					for (int i = 0; i < pseudos.length; i++) {
+						if (pseudos[i].equals(pseudoClient) && pwds[i].equals(pwdClient)) {
+							CheckAccess.userAllowed = true;
+						}
 					}
 				}
 			}

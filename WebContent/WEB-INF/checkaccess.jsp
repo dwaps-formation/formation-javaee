@@ -27,14 +27,13 @@
 		      maxlength="70"
 		      placeholder="Pseudo"
 		      name="pseudo"
-		      value="${pseudo}"
+		      value="${param.pseudo}"
 		      required="required"
 		      autofocus />
 		  <br />
 		  <input
 		      type="password"
-		      pattern="\d{6,8}"
-		      title="Série de 6 à 8 chiffres"
+		      title="8 caractères maxi"
 		      maxlength="8"
 		      placeholder="Mot de passe"
 		      required="required"
